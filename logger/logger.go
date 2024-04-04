@@ -120,7 +120,7 @@ func (l *Logger) log(level LogLevel, msg string, data ...interface{}) {
 	var buffer bytes.Buffer
 	if err := l.template.Execute(&buffer, map[string]string{
 		"Level": levelString + padding, // Add the padding to the log level
-		"Msg":   msg + padding,
+		"Msg":   msg,
 		"Data":  dataStr, // Pass the string
 	}); err != nil {
 		fmt.Fprintf(os.Stderr, "Error formatting log message: %v\n", err)
