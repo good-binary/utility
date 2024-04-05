@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"os"
 	"strings"
+	"time"
 )
 
 // LogLevel defines the severity level of a log message
@@ -25,6 +26,8 @@ type LogOptions struct {
 	JSON     bool     `json:"json"`      // Enable JSON formatting
 	Level    LogLevel `json:"level"`     // Minimum severity level to log
 	LogFile  string   `json:"log_file"`  // Path to the log file (optional)
+	Service  string   `json:"service"`   // Service name
+	ProdMode bool     `json:"prod_mode"` // Production mode
 }
 
 // Logger is the main struct for creating and managing logs
@@ -36,7 +39,7 @@ type Logger struct {
 
 func (l *Logger) init() error {
 	// Define the template string with padding
-	tmpl := `{{.Level}} | {{printf "%-20s" .Msg}}{{indent 4 (printf "%v" .Data)}}`
+	tmpl := `{{.Time}} | {{.Level}} | {{.Service}} | {{printf "%-20s" .Msg}}{{indent 4 (printf "%v" .Data)}}`
 
 	// Define custom indent function
 	funcMap := template.FuncMap{
@@ -85,6 +88,10 @@ func (l *Logger) log(level LogLevel, msg string, data ...interface{}) {
 		return
 	}
 
+	if l.options.ProdMode && level == Debug {
+		return
+	}
+
 	var levelString string
 	switch level {
 	case Debug:
@@ -116,12 +123,15 @@ func (l *Logger) log(level LogLevel, msg string, data ...interface{}) {
 
 	// Join the string slice
 	dataStr := strings.Join(strData, " ")
+
 	// Use the template to format the message
 	var buffer bytes.Buffer
 	if err := l.template.Execute(&buffer, map[string]string{
-		"Level": levelString + padding, // Add the padding to the log level
-		"Msg":   msg,
-		"Data":  dataStr, // Pass the string
+		"Time":    time.Now().Format("2006-01-02 15:04:05"), // Current time in format
+		"Level":   levelString + padding,                    // Add the padding to the log level
+		"Service": l.options.Service,
+		"Msg":     msg,
+		"Data":    dataStr, // Pass the string
 	}); err != nil {
 		fmt.Fprintf(os.Stderr, "Error formatting log message: %v\n", err)
 		return
@@ -172,6 +182,7 @@ func (l *Logger) Close() error {
 	l.fileWriter = nil
 	return nil
 }
+
 func (l *Logger) Infof(format string, a ...interface{}) {
 	l.log(Info, fmt.Sprintf(format, a...))
 }
