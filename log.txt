@@ -1,0 +1,28 @@
+2024-04-06 18:41:56 | info       | the_monkeys_gateway | Info message            info-info
+2024-04-06 18:41:56 | warning    | the_monkeys_gateway | Warning message         warning-info
+2024-04-06 18:41:57 | error      | the_monkeys_gateway | Error message           error-info
+2024-04-06 18:41:58 | info       | the_monkeys_gateway | Info formatted message: info-info    
+2024-04-06 18:41:59 | warning    | the_monkeys_gateway | Warning formatted message: warning-info    
+2024-04-06 18:41:59 | error      | the_monkeys_gateway | Error formatted message: error-info    
+2024-04-06 18:42:11 | info       | the_monkeys_gateway | Info message            info-info
+2024-04-06 18:42:11 | warning    | the_monkeys_gateway | Warning message         warning-info
+2024-04-06 18:42:12 | error      | the_monkeys_gateway | Error message           error-info
+2024-04-06 18:42:13 | info       | the_monkeys_gateway | Info formatted message: info-info    
+2024-04-06 18:42:14 | warning    | the_monkeys_gateway | Warning formatted message: warning-info    
+2024-04-06 18:42:14 | error      | the_monkeys_gateway | Error formatted message: error-info    
+2024-04-06 18:42:43 | debug      | the_monkeys_gateway | Debug message           debug-info
+2024-04-06 18:42:44 | info       | the_monkeys_gateway | Info message            info-info
+2024-04-06 18:42:44 | warning    | the_monkeys_gateway | Warning message         warning-info
+2024-04-06 18:42:45 | error      | the_monkeys_gateway | Error message           error-info
+2024-04-06 18:42:46 | debug      | the_monkeys_gateway | Debug formatted message: debug-info    
+2024-04-06 18:42:46 | info       | the_monkeys_gateway | Info formatted message: info-info    
+2024-04-06 18:42:47 | warning    | the_monkeys_gateway | Warning formatted message: warning-info    
+2024-04-06 18:42:47 | error      | the_monkeys_gateway | Error formatted message: error-info    
+2024-04-08 12:18:19 | debug      | the_monkeys_gateway | Debug message           debug-info
+2024-04-08 12:18:20 | info       | the_monkeys_gateway | Info message            info-info
+2024-04-08 12:18:20 | warning    | the_monkeys_gateway | Warning message         warning-info
+2024-04-08 12:18:21 | error      | the_monkeys_gateway | Error message           error-info
+2024-04-08 12:18:22 | debug      | the_monkeys_gateway | Debug formatted message: debug-info    
+2024-04-08 12:18:22 | info       | the_monkeys_gateway | Info formatted message: info-info    
+2024-04-08 12:18:23 | warning    | the_monkeys_gateway | Warning formatted message: warning-info    
+2024-04-08 12:18:23 | error      | the_monkeys_gateway | Error formatted message: error-info    
