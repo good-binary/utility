@@ -1,5 +1,6 @@
 package uuid
 
-func Newuuid() string {
-	return "gautam"
+func Newuuid() int {
+	time := 1234
+	return time
 }
