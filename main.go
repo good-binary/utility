@@ -2,13 +2,11 @@ package main
 
 import (
 	"fmt"
-	"time"
 
-	"github.com/good-binary/utility/random"
+	"github.com/good-binary/utility/uuid"
 )
 
 func main() {
-	fmt.Println(random.RandomFullName())
-	t := time.Now()
-	fmt.Println(t.Format("20060102150405"))
+	x := uuid.Newuuid()
+	fmt.Println(x)
 }
