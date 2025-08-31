@@ -16,7 +16,7 @@ This package provides utilities for UUID (Universally Unique Identifier) generat
 import "yourmodule/uuid"
 
 // Generate a new UUID (v4)
-id := uuid.NewV4()
+id := uuid.NewUUID()
 
 // Convert to string
 s := id.String()
@@ -38,9 +38,6 @@ b, _ := json.Marshal(id)
 var u2 uuid.UUID
 _ = json.Unmarshal(b, &u2)
 ```
-
-## Note
-- UUID v1 (time-based) is **not** supported in the Go standard library. Calling `uuid.NewV1()` will return an error and a nil UUID.
 
 ## Testing
 Run unit tests:
