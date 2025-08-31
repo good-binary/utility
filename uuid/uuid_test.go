@@ -8,7 +8,7 @@ import (
 func TestNewUUID(t *testing.T) {
 	u := NewUUID()
 	if u.String() == "" || !Validate(u.String()) {
-		t.Errorf("NewV4() generated invalid UUID: %s", u.String())
+		t.Errorf("NewUUID generated invalid UUID: %s", u.String())
 	}
 }
 
