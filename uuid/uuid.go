@@ -12,7 +12,7 @@
 // Usage Example:
 //
 //	import "yourmodule/uuid"
-//	id := uuid.NewV4()
+//	id := uuid.NewUUID()
 //	valid := uuid.Validate(id.String())
 //	...
 package uuid
@@ -29,7 +29,7 @@ import (
 // UUID represents a 128-bit universally unique identifier (UUID).
 type UUID [16]byte
 
-// NewV4 generates a new random (version 4) UUID.
+// NewUUID generates a new random (version 4) UUID.
 func NewUUID() UUID {
 	var u UUID
 	_, err := rand.Read(u[:])
